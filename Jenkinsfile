@@ -77,7 +77,7 @@ pipeline {
                 		dockerImage.push()
                 	}
 
-                    if (env.BRANCH_NAME.equals("master")) {
+                    if (env.BRANCH_NAME.equals("main")) {
                         docker.withRegistry( '', registryCredential ) {
                             dockerImage.push('latest')
                 	    }
