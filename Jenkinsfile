@@ -63,7 +63,7 @@ pipeline {
             steps {
             	script {
 
-                    if ( env.BRANCH_NAME.equals("main") ) {
+                    if ( env.BRANCH_NAME.equals("master") ) {
 
                         version = ":$BUILD_NUMBER"
 
