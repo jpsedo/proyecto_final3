@@ -63,7 +63,7 @@ pipeline {
             steps {
             	script {
 
-                    if ( env.BRANCH_NAME.equals("master") ) {
+                    if ( env.BRANCH_NAME.equals("main") ) {
 
                         version = ":$BUILD_NUMBER"
 
@@ -77,7 +77,7 @@ pipeline {
                 		dockerImage.push()
                 	}
 
-                    if (env.BRANCH_NAME.equals("main")) {
+                    if (env.BRANCH_NAME.equals("master")) {
                         docker.withRegistry( '', registryCredential ) {
                             dockerImage.push('latest')
                 	    }
