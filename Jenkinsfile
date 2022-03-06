@@ -45,14 +45,14 @@ pipeline {
                 //junit '**/target/surefire-reports/*.xml'
 
 
-                echo 'Quality Gate'                
-                withSonarQubeEnv('SonarServer') {
-	        		sh "mvn -X org.sonarsource.scanner.maven:sonar-maven-plugin:sonar ${branchName}"
-		       	}	
-                sleep(30)	       	
-		       	timeout(time: 1, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
-	        		waitForQualityGate abortPipeline: true
-		       	}
+                // echo 'Quality Gate'                
+                // withSonarQubeEnv('SonarServer') {
+	        	// 	sh "mvn -X org.sonarsource.scanner.maven:sonar-maven-plugin:sonar ${branchName}"
+		       	// }	
+                // sleep(30)	       	
+		       	// timeout(time: 1, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
+	        	// 	waitForQualityGate abortPipeline: true
+		       	// }
 
                 echo 'Build'
 	       		sh 'mvn -X clean package -Dmaven.test.skip=true' 
